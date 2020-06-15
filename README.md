@@ -65,7 +65,7 @@
     + By running the model, estimating the model initialization time and training time each epoch.
     + The model training epochs are determined according to the remaining time and  the running time of the model.
 + Training
-    + Because of the small number of model nodes, the difference of several training epochs will lead to the big difference of model effect. Especially for the graph with only node ID information and no original features, it is very easy to over fit. So we adopt cross validation and early stopping, which provides us with stable validation effect.
+    + Because of the small number of model nodes, the difference of several training epochs will lead to the big difference of model effect. Especially for the graph with only node ID information and no original features, it is very easy to overfit. So we adopt cross validation and early stopping, which provides us with stable validation effect.
     + training with the following parameters:
         + Learning rate = best_lr
         + Loss: NLL Loss
