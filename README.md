@@ -15,7 +15,7 @@
 + Feature
     + The size of node degree can obviously represent the importance of node, but the information of node degree with too much value is easy to overfit. So we bucket the node degree.
     + Node index embedding
-    + The multi-level neighbor information of the node.
+    + The multi-hop neighbor information of the node.
 
 ### Model Architecture & Parameters
 ***
