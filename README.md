@@ -19,6 +19,7 @@
 
 ### Model Architecture & Parameters
 ***
+<!--
 + We implement four different models:
     + GCN[1]
         + GCN is a basic model in spectral domain. It is easy to extract features from graph data.
@@ -58,7 +59,8 @@
             + K = 3
             + HIDDEN_SIZE = 32
             + DROPOUT = 0.1
-
+-->
++ Automatic proxy evaluation is a better method to select proper models for a new dataset. However, the extremely limited time budget does not allow online model selection. For a trade-off of accuracy and speed, we offline evaluate many models and empirically find that GCN, GAT, GraphSAGE, and TAGConv can get robust and good results on the 5 public dataset and 5 feedback datasets. Thus we use them for ensemble in this code. One can get better results using proxy evaluation.
 + We design different network structures for directed graph and undirected graph, sparse graph and dense graph, graph with node features and graph without node features.
 
 ### Training Procedure
