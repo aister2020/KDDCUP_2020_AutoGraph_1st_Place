@@ -17,49 +17,8 @@
     + Node index embedding
     + The multi-hop neighbor information of the node.
 
-### Model Architecture & Parameters
+### Model Architecture
 ***
-<!--
-+ We implement four different models:
-    + GCN[1]
-        + GCN is a basic model in spectral domain. It is easy to extract features from graph data.
-            + The node ID embedding, numerical features and category features through embedding layer are passing through dropout layer, linear layer and ELU layer respectively. Concat them as input to the first GCN layer.
-            + Pass dropout layer, GCN layer, ELU layer and LN layer twice.
-            + Finally, through the dropout layer, linear layer and softmax layer to get the output.
-        + Parameters
-            + ID_EMBEDDING_SIZE = 8
-            + CATEGORY_EMBEDDING_SIZE = 8
-            + GCN_LAYERS = 2
-            + HIDDEN_SIZE = 64
-            + DROPOUT = 0.1
-    + GAT[2]
-        + The attention mechanism is added to GAT model. Help the model learn structural information.
-        + Parameters
-            + ID_EMBEDDING_SIZE = 8
-            + CATEGORY_EMBEDDING_SIZE = 8
-            + GAT_LAYERS = 2
-            + HEADS = 2
-            + HIDDEN_SIZE = 16
-            + DROPOUT = 0.1
-    + GraphSAGE[3]
-        + GraphSage samples the neighbor vertices of each vertex in the graph and aggregates the information contained in the neighbor vertices according to the aggregation function.
-        + Parameters
-            + ID_EMBEDDING_SIZE = 8
-            + CATEGORY_EMBEDDING_SIZE = 8
-            + GRAPHSAGE_LAYERS = 2
-            + HIDDEN_SIZE = 64
-            + DROPOUT = 0.1
-    + TAGConv[4]
-        + Accumulate multiple GCN, and get the final result.
-            + Similar to GCN model structure, but only through one layer of TAG layer.
-        + Parameters
-            + ID_EMBEDDING_SIZE = 16
-            + CATEGORY_EMBEDDING_SIZE = 8
-            + TAG_LAYERS = 1
-            + K = 3
-            + HIDDEN_SIZE = 32
-            + DROPOUT = 0.1
--->
 + Automatic proxy evaluation is a better method to select proper models for a new dataset. However, the extremely limited time budget does not allow online model selection. For a trade-off of accuracy and speed, we offline evaluate many models and empirically find that GCN, GAT, GraphSAGE, and TAGConv can get robust and good results on the 5 public dataset and 5 feedback datasets. Thus we use them for ensemble in this code. One can get better results using proxy evaluation.
 + We design different network structures for directed graph and undirected graph, sparse graph and dense graph, graph with node features and graph without node features.
 
